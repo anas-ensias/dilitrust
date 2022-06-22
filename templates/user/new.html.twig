@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New User{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+
+    <fieldset>
+        <legend>Create your account</legend>
+        {{ form_start(form, {'attr': {'id': 'new_edit_utilisateur'}}) }}
+        <div class="row">
+            <div class="col-12">
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username) }}
+                {{ form_errors(form.username) }}
+            </div>
+            <div class="col-12">
+                {{ form_label(form.password) }}
+                {{ form_widget(form.password) }}
+            </div>
+            <div class="col-12">
+                <label for="verifpass">Confirm your password</label>
+                <input type="password" id="verifpass" required>
+            </div>
+        </div>
+        <button class="btn btn-success">Create account</button>
+        {{ form_end(form) }}
+    </fieldset>
+
+    <a class="btn btn-info" href="{{ path('home') }}">Home</a>
+{% endblock %}

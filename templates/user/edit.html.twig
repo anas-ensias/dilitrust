@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit User{% endblock %}
+
+{% block body %}
+    <h1>Edit your account</h1>
+    <fieldset>
+        <legend>New entries</legend>
+        {{ form_start(form, {'attr': {'id': 'new_edit_user'}}) }}
+        <div class="row">
+            <div class="col-12">
+                {{ form_label(form.username) }}
+                {{ form_widget(form.username) }}
+            </div>
+            <div class="col-12">
+                {{ form_label(form.password) }}
+                {{ form_widget(form.password) }}
+            </div>
+            <div class="col-12">
+                <label for="verifpass">Confirm your password</label>
+                <input type="password" id="verifpass" required>
+            </div>
+        </div>
+        <button class="btn btn-success">Edit</button>
+        {{ form_end(form) }}
+    </fieldset>
+
+    <a class="btn btn-outline-primary" href="{{ path('member') }}">Member page</a>
+
+    {{ include('user/_delete_form.html.twig') }}
+{% endblock %}
